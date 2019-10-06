@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "SabreCSG/Line Dashed"
+﻿Shader "SabreCSG/Line Dashed"
 {
 	SubShader
 	{
@@ -41,7 +39,7 @@ Shader "SabreCSG/Line Dashed"
 					o.color = saturate(color);
 					// compute texture coordinates
 					// transform position
-					o.pos = UnityObjectToClipPos(float4(IN.pos,1));
+					o.pos = mul(UNITY_MATRIX_MVP, float4(IN.pos,1));
 					o.uv = IN.uv;
 					return o;
 				}

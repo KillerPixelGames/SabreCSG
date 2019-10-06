@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "SabreCSG/ShapeEditorGrid"
+﻿Shader "SabreCSG/ShapeEditorGrid"
 {
 	Properties
 	{
@@ -44,7 +42,7 @@ Shader "SabreCSG/ShapeEditorGrid"
 				v2f vert(appdata IN)
 				{
 					v2f o;
-					o.pos = UnityObjectToClipPos(float4(IN.pos,1));
+					o.pos = mul(UNITY_MATRIX_MVP, float4(IN.pos,1));
 					return o;
 				}
 
